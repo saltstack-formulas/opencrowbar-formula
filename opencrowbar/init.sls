@@ -2,11 +2,13 @@
 {% set use_develop = salt['config.get']('opencrowbar:use_develop', False) %}
 {% set with_download = salt['config.get']('opencrowbar:with_download', False) %}
 
+{% if grains['virtual_subtype'] != 'Docker' %}
 iptables:
   service.dead
 
 permissive:
   selinux.mode
+{% endif %}
 
 ocb-repo:
   pkgrepo.managed:
