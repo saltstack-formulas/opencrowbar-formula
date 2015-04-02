@@ -1,3 +1,7 @@
+{% set use_hardware = salt['config.get']('opencrowbar:use_hardware', True) %}
+{% set use_develop = salt['config.get']('opencrowbar:use_develop', False) %}
+{% set with_download = salt['config.get']('opencrowbar:with_download', False) %}
+
 iptables:
   service.dead
 
@@ -25,12 +29,12 @@ ocb-master:
 opencrowbar-hardware:
   pkg.installed:
     - require:
-      - pkgrepo: hardware
+      - pkgrepo: ocb-hardware
 {% else %}
 opencrowbar-core:
   pkg.installed:
     - require:
-      - pkgrepo: develop
+      - pkgrepo: ocb-develop
 {% endif %}
 
 /tftpboot/isos:
