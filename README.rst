@@ -22,7 +22,7 @@ For those familiar with OpenCrowbar, but less so with SaltStack.  Do the followi
   * yum install -y git
   * mkdir -p /srv/salt
   * git clone https://github.com/saltstack-formulas/opencrowbar-formula.git
-  * cp -r opencrowbar /srv/salt
+  * cp -r opencrowbar-formula/opencrowbar /srv/salt
   * salt-call --local state.sls opencrowbar
   * cd /opt/opencrowbar/core
   * ./production.sh <FQDN of Node>
