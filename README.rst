@@ -28,4 +28,4 @@ For those familiar with OpenCrowbar, but less so with SaltStack.  Do the followi
   * ./production.sh <FQDN of Node>
   
 If a bare metal or virtual machine is not available, a docker container works as well with this command:
-  * docker run -t -i centos:centos6 /bin/bash -i
+  * docker run -t -i --privileged centos:centos6 /bin/bash -i
