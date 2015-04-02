@@ -8,7 +8,7 @@ iptables:
 permissive:
   selinux.mode
 
-{% if use_develop is True %}
+{% if use_develop == True %}
 ocb-develop:
   pkgrepo.managed:
     - humanname: develop repo for opencrowbar RPMs
@@ -25,7 +25,7 @@ ocb-master:
     - autorefresh: 1
     - keeppackages: 1
 
-{% if use_hardware is True %}
+{% if use_hardware == True %}
 opencrowbar-hardware:
   pkg.installed:
     - require:
@@ -41,7 +41,7 @@ opencrowbar-core:
   file.directory:
     - makedirs: True
 
-{% if with_download is True %}
+{% if with_download == True %}
 centos_download:
   file.managed:
     - name: /tftpboot/isos/CentOS-7-x86_64-DVD-1503.iso
@@ -51,7 +51,7 @@ centos_download:
       - file: /tftpboot/isos
 {% endif %}
 
-{% if use_hardware is True %}
+{% if use_hardware == True %}
 /tftpboot/files/raid:
   file.directory:
     - makedirs: True
