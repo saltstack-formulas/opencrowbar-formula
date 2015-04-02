@@ -40,6 +40,7 @@ opencrowbar-core:
 {% if with_download is True %}
 centos_download:
   file.managed:
+    - name: /tftpboot/isos/CentOS-7-x86_64-DVD-1503.iso
     - source: http://mirrors.kernel.org/centos/7/isos/x86_64/CentOS-7-x86_64-DVD-1503.iso
     - source_hash: md5=99e450fb1b22d2e528757653fcbf5fdc
     - require:
