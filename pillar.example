@@ -1,0 +1,4 @@
+opencrowbar:
+  use_develop: False
+  use_hardware: True
+  with_download: False
