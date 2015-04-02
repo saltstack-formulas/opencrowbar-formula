@@ -8,14 +8,12 @@ iptables:
 permissive:
   selinux.mode
 
-{% if use_develop == True %}
-ocb-develop:
+ocb-repo:
   pkgrepo.managed:
+{% if use_develop == True %}
     - humanname: develop repo for opencrowbar RPMs
     - baseurl: http://opencrowbar.s3-website-us-east-1.amazonaws.com/develop
 {% else %}
-ocb-master:
-  pkgrepo.managed:
     - humanname: master repo for opencrowbar RPMs
     - baseurl: http://opencrowbar.s3-website-us-east-1.amazonaws.com/el6
 {% endif %}
@@ -27,15 +25,12 @@ ocb-master:
 
 {% if use_hardware == True %}
 opencrowbar-hardware:
-  pkg.installed:
-    - require:
-      - pkgrepo: ocb-hardware
 {% else %}
 opencrowbar-core:
+{% endif %}
   pkg.installed:
     - require:
-      - pkgrepo: ocb-develop
-{% endif %}
+      - pkgrepo: ocb-repo
 
 /tftpboot/isos:
   file.directory:
